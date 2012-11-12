@@ -1,0 +1,295 @@
+/* FONT FAMILY*/
+
+body {
+	font-size: 11px;
+	font-family: Verdana,sans-serif;
+	font-style: normal;
+	font-variant: normal;
+}
+
+/* Clearfix */
+.clearfix_™:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+.clearfix_tm {
+	display: inline-block;
+}
+html[xmlns] .clearfix_tm {
+	display: block;
+}
+* html .clearfix_tm {
+	height: 1%;
+}
+
+/* COLOR */
+
+.content a, /* Set the default content hyperlink color */
+.content a.edit_this, #search-result a.edit_this, /* Set the font color of the Edit link */
+.category-top-right .edit_this, .floating_menu_ui .floating_menu_action, /* Set the font color of the Action link */
+span.link, p.link /* Sets the font color of misc links */ {
+	color: #DD7433; /* orange */
+}
+
+/* Set h2 heading size and color */
+.content h2 {
+	font-size: 20px;
+	line-height: 21px;
+}
+
+.content h2 a {
+	font-size: 20px;
+	color:#2C97C5; /* blue */
+}
+
+/* Set h2 heading hover size and color */
+.content h2 a:hover {
+	font-size: 20px;
+	text-decoration:underline;
+}
+
+/* Set the h3 heading font color */
+.frame h3 {
+	font-size: 18px;
+	color: #33333; /* dark gray */
+	font-weight: normal;
+}
+
+/* ROUNDED CORNERS */
+
+#top-menu-background {
+	border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	-moz-border-radius-bottomright: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+}
+
+/* remove the rounded home tab corner that appears on:hover */
+ul#green li.tab_home {
+	border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+}
+
+/* hide the top-right and bottom-right rounded-corner images */
+div.box_top, div.box_bottom {
+	display:none;
+}
+
+/* override the "green" top and bottom backgrounds, including left rounded corner image */
+.green_box_top, .green_box_bottom {
+	background: #F4F4F4; !important
+}
+
+/* override the "grey" top and bottom backgrounds, including left rounded corner image */
+.grey_box_top, .grey_box_bottom {
+	background: #F4F4F4; !important
+}
+
+/* PAGE WIDTH */
+
+/* Set the width of the page */
+/* If you want to constrain it
+ * to a specific size. */
+#page {
+	margin: 0 auto;
+	width: 1000px;
+	max-width: 1000px;
+	min-width: 1000px;
+	position:relative;
+	right: 2px;
+	/* These two settings remove the white border next to the header. */
+	padding-left:0px;
+	padding-right:0px;
+}
+
+/* Set the minimum width of the frame */
+.frame {
+	min-width: 510px;
+}
+
+/* Add a border within the content container
+ * to compensate for taking it away
+ * in #page. */
+div#container {
+	padding: 0 10px;
+}
+
+/* BG COLOR FOR CONTENT */
+
+/* Set the background color for content_green */
+.content_green, .green_box_top, .green_box_bottom {
+	background: #FFF;  /* white */
+}
+
+/* PAGE BACKGROUND COLOR */
+
+body {
+	background:#F7F7F7;
+	color:#000;
+	font-family:'arial', sans-serif;
+	font-size:0.8em;
+	line-height:1.4em;
+	margin:0;
+	padding:0;
+}
+
+/* FORUMS PAGE */
+
+div#container .content {
+	margin-top: -1px;
+	padding-top: 1px;
+}
+
+p.forum-nav a {
+	color: #2C97C5;
+}
+
+/* SEARCH FORM */
+
+form#searchform {
+	background: url("http://info.tenmarks.com/rs/tenmarks/images/help%20graphic.png") no-repeat;
+	display: block;
+	height: 271px;
+	margin: 0 auto;
+	position: relative;
+	width: 513px;
+}
+
+#query {
+	width: 229px !important;
+	position: absolute;
+	top: 180px;
+	left: 134px;
+}
+
+#buttonsubmit {
+	background-color: #DD7433;
+	background-image: none;
+	border-radius: 0px;
+	font-weight: bold;
+	left: 404px;
+	padding: 4px 10px 3px 10px;
+	position: absolute;
+	top: 180px;
+}
+
+#searchContactContent {
+	color: #2C97C5; /* blue */
+	position: absolute;
+	top: 221px;
+	left: 135px;
+	width: 370px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#searchContactContent a {
+	color: #2C97C5; /* blue */
+	text-decoration: underline;
+}
+
+/* HEADER */
+
+/* Hide the Zendesk logo and help desk title text */
+#header_container {
+	display: none;
+}
+
+/* Increase the size of the header, add a logo, set background color */
+#header {
+	background-color:#FFF; /* white */
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+/* Setting the #top background color removes the
+ 1 px white line above the menu bar */
+#top {
+	background:#2C97C5; /* blue */
+}
+
+/* Set the text properties of links in top-right 
+ * User name, profile, help, login/logout */
+#top-right, #top-right a, #top-right p {
+	color: #333;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 25px 0 0;
+}
+
+/* Change the hyperlink hover color of links in top-right */
+#top-right a:hover {
+	color:#DD7433; /* orange */
+}
+
+#logoContainer {
+	width: 1000px;
+}
+
+#contactUsButton {
+	background-color: #D11115;
+	color: #ffffff;
+	float: right;
+	height: 30px;
+	margin: 16px 11px 0 0;
+	padding: 13px 0 0 0;
+	width: 100px;
+	text-align: center;
+}
+
+/* Set properties of new div for logo link */
+/* Inserted via JS Widget */
+/* Must match the H and W of the logo image */
+#header2 {
+	background: #fff url("http://info.tenmarks.com/rs/tenmarks/images/TenMarks_Small.png") no-repeat;
+	display: block;
+	float: left;
+	height: 70px;
+	margin-left: 8px;
+	width: 140px; 
+} 
+
+/* FOOTER */
+/* Set the footer width to match the page width */
+#footer {
+	margin: 0 auto;
+	width: 1000px;
+	max-width: 1000px;
+	min-width: 1000px;
+}
+
+/* Set the footer text hyperlink color */
+#footer a {
+	color: #2C97C5; /* blue */
+}
+
+/* Set the footer text hyperlink hover color */
+#footer a:hover {
+	color: #2C97C5; /* blue */
+}
+
+/* Center the footer text and add a drop shadow
+ * to the text. */
+#footer p {
+	text-align: center;
+	color:#2C97C5; /* blue */
+	margin:25px 0 0;
+	text-shadow:0 2px 3px rgba(0, 0, 0, 0.5); /* This may not work with all browsers */
+}
+
+/* Set the background color of the site. 
+* This is equivalent to setting Settings > Account > Page Background */
+html, body {
+	background-color:#F7F7F7; /* white */
+}
+
+#footer {
+	background-color:#F7F7F7; /* white */
+}

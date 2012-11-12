@@ -1,0 +1,19 @@
+/* HIDES MENU BAR */
+
+/* this hides the menubar */
+#top-menu-background {
+	display: none;
+}
+
+/* this hides the sidebar with widgets */
+#sidebar {
+	display: none;
+}
+/* and because we hide the sidebar, we need to hide the white space that reserved space for the sidebar */
+div#contentcolumn {
+	margin-right: 0px;
+}
+
+li.main.clazz.tab_requests, #top-right, #voting_control, #footer, #comments_section, #top-menu .tab_forums, #top-menu .tab_new, #top-menu .tab_home { 
+	display: none;
+}
