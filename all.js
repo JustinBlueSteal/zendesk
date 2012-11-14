@@ -27,7 +27,9 @@
 			// page with list of articles
 			if ( jQuery('body').hasClass('forums') ) {
 				var header = jQuery('#contentcolumn > div.content.content_grey h2').detach();
-				jQuery('#contentcolumn div.forum_tabs div.content.content_grey').prepend(header);
+				var edit = jQuery("#contentcolumn > div.content.content_grey div.content-top-right.top").detach();
+				jQuery("#contentcolumn div.forum_tabs div.content.content_grey").prepend(header);
+				jQuery("#contentcolumn div.forum_tabs div.content.content_grey h2").before(edit);
 
 				var backToHomeLink = jQuery("<div id='backToHomeLink'><a href='/forums'>&laquo; Back to Support Home</a></div>");
 				jQuery('.frame').append(backToHomeLink);
@@ -35,7 +37,9 @@
 
 			if ( jQuery('body').hasClass('categories-show') ) {
 				var header = jQuery('#contentcolumn > div.content.content_grey h2').detach();
+				var edit = jQuery("#contentcolumn > div.content.content_grey div.content-top-right.top").detach();
 				jQuery('#contentcolumn div.forum_tabs div.content.content_grey').prepend(header);
+				jQuery("#contentcolumn div.forum_tabs div.content.content_grey h2").before(edit);
 			}
 
 			// EVERYWHERE
