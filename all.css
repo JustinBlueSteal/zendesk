@@ -1,10 +1,12 @@
-/* FONT FAMILY*/
+/* PAGE BACKGROUND COLOR */
 
 body {
+	background: #F7F7F7;
+	color: #000;
 	font-size: 11px;
 	font-family: Verdana, sans-serif;
-	font-style: normal;
-	font-variant: normal;
+	margin: 0;
+	padding: 0;
 }
 
 /* Clearfix */
@@ -142,18 +144,6 @@ div#container {
 	background: #FFF;  /* white */
 }
 
-/* PAGE BACKGROUND COLOR */
-
-body {
-	background:#F7F7F7;
-	color:#000;
-	font-family:'arial', sans-serif;
-	font-size:0.8em;
-	line-height:1.4em;
-	margin:0;
-	padding:0;
-}
-
 /* HOME / FORUMS PAGE */
 
 div#container .content {
@@ -280,11 +270,11 @@ form#searchform {
 }
 
 a#homeLink {
-	color: #444444;
+	color: #dd7433;
 	float: left;
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: bold;
-	margin: 42px 0 0 10px;
+	margin: 36px 0 0 10px;
 }
 
 /* FOOTER */
