@@ -2,13 +2,13 @@
 
 body {
 	font-size: 11px;
-	font-family: Verdana,sans-serif;
+	font-family: Verdana, sans-serif;
 	font-style: normal;
 	font-variant: normal;
 }
 
 /* Clearfix */
-.clearfix_™:after {
+.clearfix_tm:after {
 	content: ".";
 	display: block;
 	clear: both;
@@ -37,19 +37,29 @@ span.link, p.link /* Sets the font color of misc links */ {
 
 /* Set h2 heading size and color */
 .content h2 {
-	font-size: 20px;
-	line-height: 21px;
+	font-size: 18px !important;
+	line-height: 19px;
 }
 
 .content h2 a {
-	font-size: 20px;
-	color:#2C97C5; /* blue */
+	color: #dd7433;
 }
 
-/* Set h2 heading hover size and color */
 .content h2 a:hover {
-	font-size: 20px;
-	text-decoration:underline;
+	color: #2c97c5;
+	font-weight: bold;
+}
+
+div.content h3 a {
+	color: #2c97c5 !important;
+}
+
+.content h3 a:hover, .content h3 a:hover span.sub-counter {
+	font-weight: bold;
+}
+
+.content h3 a span.sub-counter {
+	color: #dd7433;
 }
 
 /* Set the h3 heading font color */
@@ -57,6 +67,10 @@ span.link, p.link /* Sets the font color of misc links */ {
 	font-size: 18px;
 	color: #33333; /* dark gray */
 	font-weight: normal;
+}
+
+div.column li a {
+	color: #333333
 }
 
 /* ROUNDED CORNERS */
@@ -140,7 +154,7 @@ body {
 	padding:0;
 }
 
-/* FORUMS PAGE */
+/* HOME / FORUMS PAGE */
 
 div#container .content {
 	margin-top: -1px;
@@ -149,6 +163,16 @@ div#container .content {
 
 p.forum-nav a {
 	color: #2C97C5;
+}
+
+.follow_link {
+	display: none;
+}
+
+/* Articles */
+
+.entries .entry_user, .entries .entry-container {
+	display: none;
 }
 
 /* SEARCH FORM */
@@ -187,7 +211,6 @@ form#searchform {
 	left: 135px;
 	width: 370px;
 	font-size: 12px;
-	font-weight: bold;
 }
 
 #searchContactContent a {
@@ -254,7 +277,15 @@ form#searchform {
 	height: 70px;
 	margin-left: 8px;
 	width: 140px; 
-} 
+}
+
+a#homeLink {
+	color: #444444;
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 42px 0 0 10px;
+}
 
 /* FOOTER */
 /* Set the footer width to match the page width */

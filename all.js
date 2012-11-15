@@ -3,19 +3,79 @@
 		if (jQuery) {
 			// homepage stuff
 			if ( jQuery('body').hasClass('home') ) {
-				var welcomeDiv = jQuery("<div id='welcomeDiv'><h1>Welcome!</h1><h2>How can we help?</h2></div>");
-				jQuery("#solution_suggestion").before(welcomeDiv);
+				jQuery("<div class='box_bottom_clear'>&nbsp</div>").prependTo("#contentcolumn");
 
-				var belowSearchDiv = jQuery("<div id='belowSearchDiv'>Can't find what you're looking for? See support topics below or <a href='/anonymous_requests/new'>contact us</a>.</div>");
-				jQuery("#solution_suggestion").after(belowSearchDiv);
+				var contentGrey = jQuery("<div/>").attr({
+					"class" : "content content_grey"
+				}).prependTo("#contentcolumn");
 
-				jQuery('#topic_search_result').parent().prepend('<div id="no-results-div">Sorry, no results found.</div>');
+				var greyBoxTop = jQuery("<div/>").attr({
+					"class" : "grey_box_top"
+				}).appendTo(contentGrey);
+
+				var boxTop = jQuery("<div/>").attr({
+					"class" : "box box_top"
+				}).appendTo(greyBoxTop);
+
+				var form = jQuery("<form/>").attr({
+					"action" : "/categories/search",
+					"id" : "searchform",
+					"method" : "get"
+				}).appendTo(contentGrey);
+
+				var inputContainer = jQuery("<div/>").attr({
+					"style" : "margin:0;padding:0;display:inline;"
+				}).appendTo(form);
+
+				jQuery("<input type='hidden'/>").attr({
+					"name" : "utf8",
+					"value" : "&#x2713"
+				}).appendTo(inputContainer);
+
+				jQuery("<input type='text'/>").attr({
+					"class" : "title",
+					"id" : "query",
+					"name" : "query",
+					"autocomplete" : "off"
+				}).appendTo(form);
+
+				jQuery("<input type='hidden'/>").attr({
+					"id" : "for_search",
+					"name" : "for_search",
+					"value" : "1"
+				}).appendTo(form);
+
+				jQuery("<input type='submit'/>").attr({
+					"id" : "buttonsubmit",
+					"name" : "commit",
+					"value" : "SEARCH",
+					"class" : "button search primary",
+					"disable_with_ignored" : "Searching…"
+				}).appendTo(form);
+
+				jQuery("<div id='searchContactContent'/>").html("Can't find what you are looking for? Check out the support topics below or <a href=\"/anonymous_requests/new\">Contact Us</a>.").appendTo(form);
+
+				var greyBoxBottom = jQuery("<div/>").attr({
+					"class" : "grey_box_bottom"
+				}).appendTo(contentGrey);
+
+				var boxBottom = jQuery("<div/>").attr({
+					"class" : "box box_bottom"
+				}).appendTo(greyBoxBottom);
 			}
 
 			// page with a single help article
 			if ( jQuery('body').hasClass('entries') ) {
-				var backToHomeLink = jQuery("<div id='backToHomeLink'><a href='/forums'>&laquo; Back to Support Home</a></div>");
+				var backToHomeLink = jQuery("<div id='backToHomeLink'><a href='/home'>&laquo; Back to Support Home</a></div>");
 				jQuery('.frame').append(backToHomeLink);
+
+				// Change links from /forum to /home
+				jQuery('a').each(function() {
+					var thisLink = jQuery(this);
+					if (thisLink.attr('href') == '/forums') {
+						thisLink.attr('href', '/home');
+					}
+				});
 			}
 
 			// new request page
@@ -31,8 +91,27 @@
 				jQuery("#contentcolumn div.forum_tabs div.content.content_grey").prepend(header);
 				jQuery("#contentcolumn div.forum_tabs div.content.content_grey h2").before(edit);
 
-				var backToHomeLink = jQuery("<div id='backToHomeLink'><a href='/forums'>&laquo; Back to Support Home</a></div>");
+				var backToHomeLink = jQuery("<div id='backToHomeLink'><a href='/home'>&laquo; Back to Support Home</a></div>");
 				jQuery('.frame').append(backToHomeLink);
+
+				// Hiding the word "Forum" in the forums page. 
+				if (jQuery("h2.forums").children().length == 0) {
+					jQuery("h2.forums").remove();
+					jQuery("#backToHomeLink").remove();
+					jQuery("#buttonsubmit").attr("value", "SEARCH").after("<div id='searchContactContent'>Can't find what you are looking for? Check out the support topics below or <a href=\"/anonymous_requests/new\">Contact Us</a>.</div>");
+				}
+				// If this is not the forums page, hide the search box
+				else {
+					jQuery("div.content.content_grey:has(form#searchform)").hide();
+				}
+				
+				// Change links from /forum to /home
+				jQuery('a').each(function() {
+					var thisLink = jQuery(this);
+					if (thisLink.attr('href') == '/forums') {
+						thisLink.attr('href', '/home');
+					}
+				});
 			}
 
 			if ( jQuery('body').hasClass('categories-show') ) {
@@ -42,6 +121,18 @@
 				jQuery("#contentcolumn div.forum_tabs div.content.content_grey h2").before(edit);
 			}
 
+			if (jQuery("body").hasClass("categories")) {
+				jQuery("div.content.content_grey:has(form#searchform)").hide();
+
+				// Change links from /forum to /home
+				jQuery('a').each(function() {
+					var thisLink = jQuery(this);
+					if (thisLink.attr('href') == '/forums') {
+						thisLink.attr('href', '/home');
+					}
+				});
+			}
+
 			// EVERYWHERE
 			// change delimiters to a bullet instead of a slash
 			jQuery('h2 span.delim').each(function() {
@@ -49,33 +140,12 @@
 					jQuery(this).html('&bull;');
 				}
 			});
-
-			// update all links to /forums to sau 'Support Topics'
-			jQuery('a').each(function() {
-				var thisLink = jQuery(this);
-				if ( thisLink.parent().attr("id") != "backToHomeLink" && thisLink.attr('href') == '/forums' ) {
-					thisLink.text('TenMarks Math');
-				}
-			});
-
 			
 			jQuery("#header_container").remove();
-			
 			jQuery("<div id='logoContainer'>").addClass("clearfix_tm").appendTo("#header");
 			jQuery("<a id='header2' href='http://www.tenmarks.com/'></a>").appendTo("#logoContainer");
+			jQuery("<a id='homeLink' href='/home'>Help Desk</a>").appendTo("#logoContainer");
 			jQuery("<a id='contactUsButton' href=\"/anonymous_requests/new\">Contact Us</a>").appendTo("#logoContainer");
-
-			// Hiding the word "Forum" in the forums page. 
-			if (jQuery("h2.forums").children().length == 0) {
-				console.log("removed");
-				jQuery("h2.forums").remove();
-				jQuery("#backToHomeLink").remove();
-				jQuery("#buttonsubmit").attr("value", "SUBMIT").after("<div id='searchContactContent'>Can't find what you are looking for? Check out the support topics below or <a href=\"/anonymous_requests/new\">Contact Us</a></div>");
-			}
-			// If this is not the forums page, hide the search box
-			else {
-				jQuery("div.content.content_grey:has(form#searchform)").hide();
-			}
 		}
 	}
 	catch (e) {
